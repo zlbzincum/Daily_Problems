@@ -1,1 +1,3 @@
-# Daily_Problems
+# CF Daily Problems
+language:  C++ and Python
+just for zincum
