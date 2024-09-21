@@ -22,32 +22,25 @@ string O = "NO\n";
 
 void solve()
 {
-	int n, m ;
-	cin >> n >> m;
-	vector< vector<int> > grid(m, vector<int>(n));
-	for(int i = 0;i < m;i ++) {
-		for(int j = 0;j < n;j ++) {
-			cin >> grid[i][j];
-		}
-	} 
+	int n;
+	cin >> n;
+	string s;
+	cin >> s;
 
-	int ans = 0, idx = 0;
+	int ans = 0, cnt_g = 0, l = 0, r = 0, cnt = 0;
 
-	for(int i = 0; i < n - 1; i ++){
-		vector<int> diff;
-		for(int j = 0; j < m; j ++){
-			diff.emplace_back(grid[j][n - 1] - grid[j][i]);
+	while(l < n) {
+		if(s[l] == 'G') cnt_g ++;
+
+		while(r < n && cnt + (s[r] == 'S') <= 1){
+			cnt += (s[r ++] == 'S');
 		}
 
-		sort(diff.begin(),diff.end());
+		ans = max(ans, r - l);
+		cnt -= (s[l ++] == 'S');
+	}
 
-		int cur = 0;
-
-		for(int j = 0; j < m; j ++) {
-			
-		}
-	} 
- 
+	cout << min(cnt_g, ans)<<endl;
 }  
  
 signed main()
